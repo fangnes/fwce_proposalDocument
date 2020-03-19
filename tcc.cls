@@ -205,6 +205,7 @@ e-mails <rfbpiccoli at gmail dot com> e <marcelo dot cohen at pucrs dot br>
 \newcommand*{\cc}{Ci\^{e}ncia da Computa\c{c}\~{a}o}
 \newcommand*{\si}{Sistemas de Informa\c{c}\~{a}o}
 \newcommand*{\es}{Engenharia de Software}
+\newcommand*{\ec}{Engenharia de Computação}
 \let\PP@grau=\PP@undef
 \let\PP@tipo=\monografia
 \let\PP@curso=\cc
