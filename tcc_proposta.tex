@@ -59,6 +59,11 @@
 % este pacote é incompatível com a classe.
 %\usepackage{algorithm}
 
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\etc}{{\it etc.}}
+\newcommand{\etal}{{\it et al.}}
+
 %----------------------------------------------------------------
 % Parâmetros customizados sob demanda
 %----------------------------------------------------------------
@@ -100,7 +105,7 @@
 % informar pelo menos o orientador.
 %----------------------------------------------------------------
 \orientador{Felipe Meneguzzi}
-\coorientador{Ciclano de Farias}
+%\coorientador{Ciclano de Farias}
 
 %----------------------------------------------------------------
 % A capa é inserida automaticamente. Por isso não é necessário
@@ -111,10 +116,10 @@
 %----------------------------------------------------------------
 % Depois da capa vem a dedicatória e a epígrafe.
 %----------------------------------------------------------------
-\dedicatoria{Dedico este trabalho a meus pais.}
+%\dedicatoria{Dedico este trabalho a meus pais.}
 
-\epigrafe{The art of simplicity is a puzzle of complexity.}
-         {Douglas Horton}
+%\epigrafe{The art of simplicity is a puzzle of complexity.}
+%         {Douglas Horton}
 
 %----------------------------------------------------------------
 % Também dá para fazer as duas na mesma página:
@@ -126,19 +131,19 @@
 %----------------------------------------------------------------
 % A seguir, a página de agradecimentos (OPCIONAL):
 %----------------------------------------------------------------
-\begin{agradecimentos}
-À lorem ipsum, dolor sit amet consetetur sadipscing elitr sed diam
-nonumy eirmod tempor. invidunt ut labore et dolore magna aliquyam
+% \begin{agradecimentos}
+% À lorem ipsum, dolor sit amet consetetur sadipscing elitr sed diam
+% nonumy eirmod tempor. invidunt ut labore et dolore magna aliquyam
 
-À erad sed, diam voluptua at vero, eos et accusam et justo duo
-dolores et ea rebum stet clita.
+% À erad sed, diam voluptua at vero, eos et accusam et justo duo
+% dolores et ea rebum stet clita.
 
-À kasd gubergren, no sea. takimata sanctus est lorem ipsum dolor sit
-amet lorem ipsum dolor sit amet. consetetur sadipscing elitr sed
+% À kasd gubergren, no sea. takimata sanctus est lorem ipsum dolor sit
+% amet lorem ipsum dolor sit amet. consetetur sadipscing elitr sed
 
-À diam nonumy, eirmod tempor, invidunt ut labore et dolore magna
-aliquyam erat sed diam voluptua at.
-\end{agradecimentos}
+% À diam nonumy, eirmod tempor, invidunt ut labore et dolore magna
+% aliquyam erat sed diam voluptua at.
+% \end{agradecimentos}
 
 %----------------------------------------------------------------
 % Resumo, com as palavras-chave passadas por parâmetro
@@ -176,11 +181,11 @@ erat sed diam voluptua at
 %----------------------------------------------------------------
 \listoffigures       % Lista de figuras      (OPCIONAL)
 
-\listoftables        % Lista de tabelas      (OPCIONAL)
-\listofalgorithms    % Lista de algoritmos   (OPCIONAL)
+%\listoftables        % Lista de tabelas      (OPCIONAL)
+%\listofalgorithms    % Lista de algoritmos   (OPCIONAL)
 \listofacronyms      % Lista de siglas       (OPCIONAL)
-\listofabbreviations % Lista de abreviaturas (OPCIONAL)
-\listofsymbols       % Lista de símbolos     (OPCIONAL)
+%\listofabbreviations % Lista de abreviaturas (OPCIONAL)
+%\listofsymbols       % Lista de símbolos     (OPCIONAL)
 \tableofcontents     % Sumário               (OBRIGATÓRIO)
 
 %----------------------------------------------------------------
@@ -189,7 +194,7 @@ erat sed diam voluptua at
 % um para cada capítulo. Para isso, utilize o comando \include,
 % como mostrado abaixo.
 %----------------------------------------------------------------
-%\include{exemplo-cap1}
+\include{tcc_proposta_cap1}
 \include{tcc_proposta_cap2}
 
 %----------------------------------------------------------------
@@ -207,17 +212,17 @@ erat sed diam voluptua at
 % Após \appendix, se iniciam os capítulos de Apêndice, com
 % numeração alfabética.
 %----------------------------------------------------------------
-\appendix
-\chapter{Meu primeiro apêndice}
-\chapter{My second appendix}
+%\appendix
+%\chapter{Meu primeiro apêndice}
+%\chapter{My second appendix}
 
 %----------------------------------------------------------------
 % Aqui vão os "capítulos" de anexos. Cada anexo deve
 % ser considerado um capítulo.
 %----------------------------------------------------------------
-\anexos
-\chapter{Meu primeiro anexo}
-\chapter{My second attachment}
+%\anexos
+%\chapter{Meu primeiro anexo}
+%\chapter{My second attachment}
 
 % E aqui (para a felicidade de todos) termina o documento.
 \end{document}
