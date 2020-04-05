@@ -11,6 +11,7 @@
 
 
 \chapter{Fundamentação Teórica}\label{chap2:fund_teo}
+    
     \section{Veículo de Superfície Não Tripulado}\label{subchap2:USV}
         Um veículo de superfície não tripulado (do inglês \textit{"Unmanned Surface Vehicle"} - USV) é caracterizado por realizar atividades navais de forma autônoma, ou controlado remotamente, sem a presença de tripulação~\cite{LIU201671}. Tais características também enquadram um USV na categoria de um robô~\cite{JURAK2020}.
         De acordo com Liu \etal~\cite{LIU201671}, um USV pode ter as mais variadas aparências e funcionalidades, porém os seguintes componentes básicos devem compor um USV:
@@ -103,11 +104,25 @@
         Tais indicadores poderiam ser obtidos através da predição da posição dos navios para cada instante de tempo futuro. Porém esse processamento deveria ser reexecutado a todo momento pelo GNC, demandando um grande esforço computacional. Em contrapartida, utilizando o algoritimo de Obstáculo de Velocidades (do inglês \textit{"Velocity Obstacles"} - VO) é possível identificar uma situação de colisão em qualquer tempo futuro com apenas uma verificação, simplificando o problema para um de primeira ordem~\cite{KUWATA2014110}. Além disso, outra vantagem de utilizar VO é que esse algoritmo escala de forma satisfatória para encontros com múltiplos obstáculos móveis. Contudo, o principal desafio no uso de VO consiste em faze-lo considerar a dinâmica do barco, ou seja, não assumir que poderá alterar sua velocidade linear ou angular instantaneamente~\cite{HUANG2019142}.
         
     \section{Obstáculos de Velocidade}\label{subchap2:vo}
-        O algoritmo VO consiste em expandir a área ocupada pelo obstáculo, podendo ser considerada um círculo, como no trabalho de Song \etal~\cite{SONG2018351} ou então uma dilatação resultante da soma de Minkowski, como mostrado por Kuwata \etal~\cite{KUWATA2014110}. Com base nisso, o algoritmo VO gera uma forma geométrica triangular no espaço de velocidades, com um vértice no centro do OS e as duas arestas adjacentes tangenciando a área ocupada pelo TS.
+        O algoritmo VO consiste em identificar um conjunto de velocidades que conduzirão o USV por um caminho livre de colisão~\cite{HUANG2019142}. Isso é feito gerando um obstáculo no espaço de velocidades com a garantia que, enquanto o vetor velocidade do USV estiver fora do obstáculo gerado, não haverá colisão em qualquer tempo futuro. Esse obstáculo possui um formato cônico com suas arestas tangenciando o TS expandido pelo tamanho do USV~\cite{KUWATA2014110}. Essa expansão também pode ser representada por um círculo como apresentado por Song \etal~\cite{SONG2018351}.
+        
+        Neste trabalho adaptaremos o algoritmo de VO apresentado por Kuwata \etal ~\cite{KUWATA2014110} para que seja integrado no sistema desenvolvido por Jurak~\cite{JURAK2020}. Para tal, é preciso introduzir as notações utilizadas pelo autor em seu trabalho. Sendo assim, consideraremos o vetor $\vec{p} \in \R^2$ como sendo a posição da embarcação e o vetor $\vec{v} \in \R^2$ a sua velocidade. Kuwata \etal ~\cite{KUWATA2014110} ainda define as seguintes equações para obter o vetor velocidade partindo de $\vec{p}$ (equação \eqref{subchap2:eqVelocityVector}) e a expansão da área ocupada pelo obstáculo (equação \eqref{subchap2:eqMinkowskiSum} e \eqref{subchap2:eqReflection}):
+        % comentário para evitar novo parágrafo
+        \begin{align}
+            \text{Vetor velocidade de $\vec{p}$ até $\vec{v}$:}\quad&~\lambda(\vec{p}, \vec{v}) = \{\vec{p} + t\vec{v}~|~t \geq 0\}\label{subchap2:eqVelocityVector}\\
+            \text{Soma de Minkowski:}\quad&~\mathcal{A} \oplus \mathcal{B}= \{\vec{a} + \vec{b}~|~\vec{a} \in \mathcal{A}, \vec{b} \in \mathcal{B}\}\label{subchap2:eqMinkowskiSum}\\
+            \text{Reflexão:}\quad&~- \mathcal{A}= \{- \vec{a}~|~\vec{a} \in \mathcal{A}\}\label{subchap2:eqReflection}
+        \end{align}
         
         \begin{figure}
             \centering
-            \includegraphics{}
+            \includegraphics[width=\textwidth]{fig/chap2/vo.png}
             \caption{Caption}
-            \label{fig:my_label}
+            \label{fig:Kuwata2014_vo}
         \end{figure}
+        
+        Considerando a situação da Figura~\ref{fig:Kuwata2014_vo}, apresentada por Kuwata \etal~\cite{KUWATA2014110}, temos, no lado esquerdo, que um dado USV $\mathcal{A}$ se move a uma velocidade $\vec{v_\mathcal{A}}$ enquanto que um obstáculo em movimento $\mathcal{B}$ se move a uma velocidade $\vec{v_\mathcal{B}}$. O VO gerado por $\mathcal{B}$ no espaço de velocidade de $\mathcal{A}$ é mostrado no lado direito da imagem e definido pela equação \eqref{eq:velocityObstacle}. Neste primeiro momento, com o vértice do VO no centro do USV, temos que a colisão é identificada dado que o vetor resultate de $(\vec{v_\mathcal{A}} - \vec{v_\mathcal{B}})$ esta direcionado para o interior do VO.
+        % Comentário para evitar novo parágrafo
+        \begin{equation}\label{eq:velocityObstacle}
+            \mathcal{VO^A_B}(\vec{v_\mathcal{B}}) = \{\vec{v_\mathcal{A}}~|~\lambda(\vec{p_\mathcal{A}}, \vec{v_\mathcal{A}} - \vec{v_\mathcal{B}}) \cap (\mathcal{B} \oplus \mathcal{A}) \neq \varnothing\}
+        \end{equation}
