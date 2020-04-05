@@ -1,0 +1,75 @@
+----------------------------------------------------
+------------    PROPOSAL DOCUMENT       ------------
+----------------------------------------------------
+
+- Escrever sobre:
+    - USV           OK
+    - CPA
+    - COLREGS       OK
+    - ROS
+    - USV_sim
+    - Método/Sistema do Darlan
+    - Explicar como calcular VO, detalhar os calculos 
+
+Capítulo 1: Introdução
+ ## FRM: Talvez sejam tópicos demais para cobrir aqui, tente explicar os problemas (não só acidentes marítimos, mas pq é importante automatizar colregs em USVs)
+    Falar sobre acidentes marítimos
+    Falar sobre COLREGS
+    Falar sobre USV
+    Falar sobre collision avoidance
+    Falar sobre CPA
+    Falar sobre o que o trabalho vai fazer
+    Falar sobre como está estruturado o documento
+
+	# FRM: Subseções na introdução da proposta é só para ocupar espaço, cada uma destas subseções vai ser literalmente um parágrafo, então, deixa só parágrafos na intro...
+
+    Capítulo 1.1: Trabalho Proposto
+        Falar sobre o que o trabalho se propõe a fazer
+        Falar brevemente sobre o framework de desenvolvimento
+
+    Capítulo 1.2: Contribuições
+        Falar sobre as contribuições
+
+
+Capítulo 2: Fundamentação Teórica
+    
+    Capítulo 2.1: USV
+        Falar o que é USV
+        Falar o que compõe um USV
+        Falar de sistema GNC
+        Falar sobre planejadores, rota local/global
+    
+    Capítulo 2.2: COLREGS
+        Falar a respeito do surgimento das COLREGS
+        Falar e explicar os encontros abordados no sistema do Darlan
+
+    Capítulo 2.3: Collision Avoidance
+        Definir o que é collision avoidance
+        Falar das etapas de collision avoidance definidas por Huang
+        Explicar o fluxo de informação dessas etapas
+        Falar da técnica que utiliza indicadores para avaliar o risco de colisão (CRI)
+
+    Capítulo 2.4: CPA e VO # FRM Não entendi o que são os acrônimos, o que me lembra, evite uso excessivo abreviaturas 
+        Falar pra que serve um CPA
+        Falar meios de calcular o CPA
+        Falar sobre VO
+
+
+Capítulo 3: Framework de desenvolvimento
+
+    Capítulo 3.1: Sistema do Darlan
+        Falar sobre a arquitetura
+        Falar sobre os encontros implementados
+    
+    Capítulo 3.2: ROS
+        Falar o que é
+        Falar como funciona (nodos, tópicos e etc)
+
+    Capítulo 3.3: USV_sim
+        Falar o que é (usar como base informações do GitHub)
+        Falar as features possíveis de serem simuladas
+
+
+Capítulo 4: Entregáveis e Cronograma
+    Listar Entregáveis
+    Colocar cronograma
