@@ -37,18 +37,23 @@
         A primeira contribuição deste trabalho é capacitar o sistema desenvolvido por Jurak~\cite{JURAK2020} a calcular o CPA de um encontro, colaborando para o aprimoramento dos barcos-robôs pertencentes ao Laboratório de Sistemas Autônomos da PUCRS. Além disso, a maioria dos sistemas desenvolvidos para USVs ou são resguardados por patentes, ou então possuem acesso restrito àqueles que não participaram de seu desenvolvimento~\cite{JURAK2020}. Sendo assim, este trabalho visa contribuir à comunidade de desenvolvedores mantendo o que for desenvolvido em código aberto.
         
         A segunda contribuição, em decorrência da primeira, será identificar encontros em que as COLREGS não são aplicáveis. Kuwata \etal~nos mostra, através da Figura\ref{fig:Kuwata2014_colregApplicable}, uma situação de \textit{"crossing"} em que a COLREGS é aplicável, visto que há risco de colisão. Já na Figura\ref{fig:Kuwata2014_colregNA}, dada a baixa velocidade do TS, não há risco de colisão. Sendo assim, mesmo em uma situação caracterizada como \textit{"crossing"}, a COLREGS não é aplicável nesse caso.
-        
-        % Tentei colocar essas figuras lado a lado, com base no doc do Darlan (usando \subfigure e tal) mas não rolou
-        \begin{figure}
+
+    \begin{figure}[H]
+    \centering
+    
+        \begin{subfigure}{0.4\textwidth}
             \centering
-            \includegraphics{fig/chap1/colregs_applicable.png}
-            \caption{Caption}
+            \includegraphics[width=\textwidth]{fig/chap1/colregs_applicable.png}
+            \caption{}
             \label{fig:Kuwata2014_colregApplicable}
-        \end{figure}
-        
-        \begin{figure}
+        \end{subfigure}
+        \begin{subfigure}{0.4\textwidth}
             \centering
-            \includegraphics{fig/chap1/colregs_na.png}
-            \caption{Caption}
+            \includegraphics[width=\textwidth]{fig/chap1/colregs_na.png}
+            \caption{}
             \label{fig:Kuwata2014_colregNA}
-        \end{figure}
+        \end{subfigure}
+    
+    \caption{Mesmo encontro para diferentes velocidades da embarcação que se aproxima (triângulo azul). Na figura (a) a COLREGS é aplicável e o USV (triangulo cinza) deve desviar da embarcação que se aproxima, enquanto que na figura (b) não é aplicável e o USV pode seguir sua rota sem alteração}
+    \label{fig:Kuwata2014_colregsInterpretation}
+    \end{figure}

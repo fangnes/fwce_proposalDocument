@@ -48,8 +48,14 @@
 \usepackage{multirow}
 % Para frações na mesma linha (ex. ⅓).
 \usepackage{nicefrac}
+
+% PACOTE DESATUALIZADO, USAR subcaption
+% https://www.overleaf.com/learn/latex/Errors/Illegal_unit_of_measure_(pt_inserted)
 % Para inserir figuras lado a lado.
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+
 % Para formatar algoritmos.
 % A opção [algo2e] é necessária para evitar conflitos
 % com as definições da classe.
@@ -58,6 +64,8 @@
 % Um float do tipo algoritmo. No momento
 % este pacote é incompatível com a classe.
 %\usepackage{algorithm}
+
+\usepackage[inline]{enumitem}
 
 \newcommand{\ie}{{\it i.e.}}
 \newcommand{\eg}{{\it e.g.}}
