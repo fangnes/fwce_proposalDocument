@@ -11,7 +11,7 @@
 
 
 \chapter{Fundamentação Teórica}\label{chap2:fund_teo}
-    Neste capítulo aprofundaremos os conceitos técnicos utilizador por este trablaho.
+    Neste capítulo aprofundaremos os conceitos técnicos utilizador por este trabalho.
     \section{Veículo de Superfície Não Tripulado}\label{subchap2:USV}
         Um veículo de superfície não tripulado (do inglês \textit{"Unmanned Surface Vehicle"} - USV) é caracterizado por realizar atividades navais de forma autônoma, ou controlado remotamente, sem a presença de tripulação~\cite{LIU201671}. Tais características também enquadram um USV na categoria de um robô~\cite{JURAK2020}.
         De acordo com Liu \etal~\cite{LIU201671}, um USV pode ter as mais variadas aparências e funcionalidades, porém os seguintes componentes básicos devem compor um USV: 
@@ -29,7 +29,7 @@
         \begin{figure}
             \centering
             \includegraphics[width=0.8\textwidth]{fig/chap2/gnc_system.png}
-            \caption{Caption}
+            \caption{Figura apresentada por Liu \etal~\cite{LIU201671} onde o detalhamento do sistema GNC é exibido}
             \label{fig:Liu2016_gncSystem}
         \end{figure}
         
@@ -38,36 +38,36 @@
             
             \item \textit{"Guidance":} subsistema responsável por gerenciar os dados da missão atual a ser executada e definir os meios necessários para cumpri-la. Através dos dados obtidos do subsistema \textit{"Navigation"}, as ações necessárias para atingir o objetivo são definidas e enviadas para o subsistema \textit{"Guidance"}~\cite{JURAK2020}.
             
-            % As informações referentes ao próprio barco captadas pelo sistema de navegação também vão para o sistema de controle, pois ele precisa saber a posição atual do barco para saber como ele vai atuar para chegar na próxima posição determinada pelo guidance
             \item \textit{"Control":} subsistema que, com base no estado atual do USV obtido pelo subsistema \textit{"Navigation"}, gera os comandos necessários para realizar as ações definidas pelo subsistema \textit{"Guidance"}. Além disso, também é sua responsabilidade executar os comandos gerados diretamente nos atuadores do USV~\cite{JURAK2020}.
         \end{enumerate}
         
         Visto que este trabalho almeja aprimorar a capacidade de evasão de colisão, focaremos no subsistema de \textit{"Guidance"}. Sua implementação consiste em, além do gerenciamento dos dados de missão, estabelecer qual a melhor rota para o USV percorrer~\cite{JURAK2020}. A definição da rota geralmente ocorre em dois níveis: global e local. Ambos os níveis utilizam planejadores; o planejador global definirá a rota a ser corrida em um mapa de larga escala, chamada de rota global, considerando obstáculos estáticos conhecidos; enquanto que o planejador local atentará para o surgimento de obstáculos que não foram considerados na rota global e que precisarão ser desviados, gerando uma rota local específica para a atual situação~\cite{LIU201671}.
     
-    \section{Regulamentos Internacionais para Prevenção de Colisões no Mar}\label{subchap2:colregs}
-        Buscando padronizar as ações tomadas para evitar colisões, a Organização Internacional da Marinha (IMO - do inglês \textit{"International Marine Organization"}) definiu uma série de regulamentações para colisão no mar (COLREGS - do inglês \textit{"COLlision REGulations at Sea"})~\cite{COLREGS}.
-        Para que o uso de USV não apresente perigo para outras embarcações, sendo elas tripuladas ou não, é necessário que ele não realize ações inesperadas pela embarcação que se aproxima. Sendo assim, o USV deverá realizar suas ações de acordo com a COLREGS de forma que seja perceptível para o humano que estiver no outro barco~\cite{KUWATA2014110}. Jurak~\cite{JURAK2020} em seu sistema considerou os encontros \textit{"head-on"}, \textit{"crossing from left"}, \textit{"crossing from right"} e \textit{"overtaking"}. As situações listadas são ilustradas na Figura~\ref{fig:Jurak2020_colregsSituations} e serão explicados a seguir: 
+    \section{Regulamentações de Prevenção de Colisões no Mar}\label{subchap2:colregs}
+        Buscando padronizar as ações tomadas para evitar colisões, a Organização Internacional da Marinha (IMO - do inglês \textit{"International Marine Organization"}) definiu as regulamentações de prevenção de colisões no mar (COLREGS - do inglês \textit{"COLlision REGulations at Sea"})~\cite{COLREGS}.
+        Para que o uso de USV não apresente perigo para outras embarcações, sendo elas tripuladas ou não, é necessário que ele realize ações conhecidas e esperadas pela embarcação que se aproxima. Sendo assim, o USV deverá realizar suas ações de acordo com a COLREGS de forma que seja perceptível para a outra embarcação~\cite{KUWATA2014110}. Jurak~\cite{JURAK2020} em seu sistema considerou os encontros \textit{"head-on"}, \textit{"crossing from left"}, \textit{"crossing from right"} e \textit{"overtaking"}. As situações listadas são ilustradas na Figura~\ref{fig:Jurak2020_colregsSituations} e serão explicados a seguir: 
         
         \begin{figure}
             \centering
             \includegraphics[width=0.8\textwidth]{fig/chap2/colregs_situations.png}
-            \caption{Caption}
+            \caption{Figura apresentada por Jurak~\cite{JURAK2020} que ilustra os encontros previstos pela COLREGS}
             \label{fig:Jurak2020_colregsSituations}
         \end{figure}
         
         \begin{enumerate}
-            \item [1] \textit{"head-on":} situação em que as embarcações se encontram frente a frente. Nesse caso, a COLREGS específica que ambas as embarcações devem evitar a colisão virando à \textit{"starboard side"} (estibordo) e, por consequência, passando pelo \textit{"port side"} (bombordo) da outra embarcação.
+            \item \textit{"head-on":} situação em que as embarcações se encontram frente a frente. Nesse caso, a COLREGS específica que ambas as embarcações devem evitar a colisão virando à \textit{"starboard side"} (estibordo) e, por consequência, passando pelo \textit{"port side"} (bombordo) da outra embarcação.
             
-            \item [2] \textit{"crossing from left/right":} situação em que uma embarcação cruzará o caminho da outra. Nesse caso, a embarcação que encontrar a outra no seu lado direito (\textit{"startboard side"} - estibordo) é responsável por evitar a colisão contornando a embarcação que se aproxima por trás, realizando uma conversão à direita (\textit{"startboard"} - estibordo). Já a embarcação que possuir a outra no seu lado esquerdo (\textit{"port side"} - bombordo), não deverá mudar seu curso.
+            \item \textit{"crossing from left/right":} situação em que uma embarcação cruzará o caminho da outra. Nesse caso, a embarcação que encontrar a outra no seu lado direito (\textit{"startboard side"} - estibordo) é responsável por evitar a colisão contornando a embarcação que se aproxima por trás, realizando uma conversão à direita (\textit{"startboard"} - estibordo). Já a embarcação que possuir a outra no seu lado esquerdo (\textit{"port side"} - bombordo), não deverá mudar seu curso.
             
-            \item [3] \textit{"overtaking":} situação em que uma embarcação se encontra em uma velocidade maior do que a embarcação que se encontra à frente. Nesse caso a embarcação que se aproxima pode desviar pelo lado em que não causará uma nova situação de \textit{"overtaking"}.
+            \item \textit{"overtaking":} situação em que uma embarcação se encontra em uma velocidade maior do que a embarcação que se encontra à frente. Nesse caso a embarcação que se aproxima pode desviar pelo lado em que não causará uma nova situação de \textit{"overtaking"}.
         \end{enumerate}
     
     \section{Evasão de Colisão}\label{subchap2:prev_col}
         %Falar aqui, de alguma forma, que evasão de colisão se refere a "se" e "quando" agir frente a uma possível colisão
         Uma tarefa primordial quando se trata de navegação é evitar que a embarcação colida com algum obstáculo. Entretanto, prevenção de colisão consiste em um dos principais desafios ao desenvolver um USV~\cite{JURAK2020}. Em um USV o sistema GNC é responsável por realizar todo o procedimento de prevenção de colisão, sendo o subsistema \textit{"Guidance"} o encarregado de detectar a colisão e encontrar uma solução para que ela não ocorra~\cite{HUANG2020451}.
+        %(2020, p.451)
         
-        Huang \etal~(2020, p.451) define prevenção de colisão como:
+        Huang \etal~\cite[p.451]{HUANG2020451} define prevenção de colisão como:
         \begin{directcite}
             \textit{"Prevenção de colisão é o processo em que uma embarcação desvia de sua trajetória planejada para evitar contato físico indesejado em um certo tempo futuro"}
         \end{directcite}
@@ -80,9 +80,7 @@
             \item Resolução de Conflito: encontrará o melhor caminho para evitar a colisão.
         \end{enumerate}
         
-        A Figura~\ref{fig:Huang2020_collisionAvoidanceProcess}, apresentada por Huang \etal~\cite{HUANG2020451}, mostra o fluxo de informação realizada em um sistema GNC no procedimento de prevenção de colisão. Na imagem, podemos considerar \textit{"Observer"} e \textit{"Actuator"} como módulos dos subsistemas de \textit{"Navigation"} e \textit{"Control"}, respectivamente. Os módulos envoltos pelo pontilhado vermelho correspondem às etapas listadas anteriormente e que compõe o subsistema \textit{"Guidance"}.
-        
-        As informações coletadas pelo \textit{"Observer"} são utilizadas pelo módulo \textit{"Motion Prediction"}, quando implementado, para realizar as previsões necessárias. O módulo \textit{"Conflict Detection"} utilizará as informações providas pelo \textit{"Motion Prediction"}, ou \textit{"Observer"}, a fim de identificar se há risco de colisão. Se não houver, as diretivas de caminho e velocidade são enviadas diretamente para o \textit{"Actuator"}. Caso houver risco de colisão, o módulo \textit{"Conflict Resolution"} será acionado para que encontre um caminho seguro para evitar a colisão, consequentemente, gerando diretivas de caminho e velocidade que levarão a um desvio da rota global.
+        A Figura~\ref{fig:Huang2020_collisionAvoidanceProcess}, apresentada por Huang \etal~\cite{HUANG2020451}, mostra o fluxo de informação realizada em um sistema GNC no procedimento de prevenção de colisão. Na imagem, podemos considerar \textit{"Observer"} e \textit{"Actuator"} como módulos dos subsistemas de \textit{"Navigation"} e \textit{"Control"}, respectivamente. Os módulos envoltos pelo pontilhado vermelho correspondem às etapas listadas anteriormente e que compõe o subsistema \textit{"Guidance"}. As informações coletadas pelo \textit{"Observer"} são utilizadas pelo módulo \textit{"Motion Prediction"}, quando implementado, para realizar as previsões necessárias. O módulo \textit{"Conflict Detection"} utilizará as informações providas pelo \textit{"Motion Prediction"}, ou \textit{"Observer"}, a fim de identificar se há risco de colisão. Se não houver, as diretivas de caminho e velocidade são enviadas diretamente para o \textit{"Actuator"}. Caso houver risco de colisão, o módulo \textit{"Conflict Resolution"} será acionado para que encontre um caminho seguro para evitar a colisão, consequentemente, gerando diretivas de caminho e velocidade que levarão a um desvio da rota global.
         
         \begin{figure}[H]
             \centering
@@ -120,10 +118,20 @@
             \label{fig:vo}
         \end{figure}
         
-        Com isso, consideremos um USV $\mathcal{A}$ se movendo a uma velocidade $\vec{v_\mathcal{A}}$ no mesmo cenário que uma embarcação $\mathcal{B}$ se movendo a uma velocidade $\vec{v_\mathcal{B}}$. Consideremos também que o espaço ocupado pela embarcação $\mathcal{B}$ é expandido pelo tamanho do USV $\mathcal{A}$, dado por $(-\mathcal{A} \oplus \mathcal{B})$. A Figura~\ref{fig:cone_shaped} ilustra esse cenário, descrito por Kuwata \etal~\cite{KUWATA2014110}, onde um cone partindo do centro do USV $\mathcal{A}$ e com arestas tangenciando a área expandida de $\mathcal{B}$ é mostrado, cuja definição matemática é posta pela equação~\eqref{eq:velocityObstacle}. Posto isso, podemos definir o obstáculo gerado por $\mathcal{B}$ no espaço de velocidade do USV $\mathcal{A}$ como o cone mostrado na Figura~\ref{fig:cone_shaped} deslocado pelo vetor velocidade de $\vec{v_\mathcal{B}}$, como ilustrado pela Figura~\ref{fig:vo}~\cite{KUWATA2014110}.
+        Com isso, consideremos um USV \A se movendo a uma velocidade \va no mesmo cenário que uma embarcação \B se movendo a uma velocidade \vb. Consideremos também que o espaço ocupado pela embarcação \B é expandido pelo tamanho do USV \A, dado por $(-\mathcal{A} \oplus \mathcal{B})$. A Figura~\ref{fig:cone_shaped} ilustra esse cenário, descrito por Kuwata \etal~\cite{KUWATA2014110}, onde um cone partindo do centro do USV \A e com arestas tangenciando a área expandida de \B é mostrado, cuja definição matemática é se da pela equação~\eqref{eq:velocityObstacle}. Da equação podemos entender que se a velocidade relativa $(\vec{v_\mathcal{A}} - \vec{v_\mathcal{B}})$ apontar para a área ocupada pelo obstáculo, haverá colisão. Posto isso, podemos definir o obstáculo gerado por \B no espaço de velocidade do USV \A como o cone mostrado na Figura~\ref{fig:cone_shaped} deslocado pelo vetor velocidade de \vb, como ilustrado pela Figura~\ref{fig:vo}. Nessa perspectiva, a colisão é identificada enquanto o vetor velocidade \va estiver dentro do obstáculo gerado~\cite{KUWATA2014110}.
+        % Comentário para evitar novo parágrafo
+        \begin{align}
+            \mathcal{VO^A_B}(\vec{v_\mathcal{B}}) &= \{\vec{v_\mathcal{A}}~|~\lambda(\vec{p_\mathcal{A}}, \vec{v_\mathcal{A}} - \vec{v_\mathcal{B}}) \cap (\mathcal{B} \oplus \mathcal{A}) \neq \varnothing\}\label{eq:velocityObstacle}\\
+            t_{\rm CPA} &=
+            \begin{cases}
+                0, & \text{if } \Vert\vec{v}_{A}-\vec{v}_{B}\Vert\leq\epsilon\\
+                \displaystyle{{(\vec{p}_{A}-\vec{p}_{B})\cdot(\vec{v}_{A}-\vec{v}_{B})}\over{\Vert\vec{v}_{A}-\vec{v}_{B}\Vert^{2}}}
+            \end{cases}\label{eq:tcpa}\\
+            d_{\rm CPA} &=\bigl\Vert (\vec{p}_{A}+\vec{v}_{A}t_{\rm CPA})-(\vec{p}_{B}+\vec{v}_{B}t_{\rm CPA})\bigr\Vert\label{eq:dcpa}
+        \end{align}
         
-        \begin{equation}\label{eq:velocityObstacle}
-            \mathcal{VO^A_B}(\vec{v_\mathcal{B}}) = \{\vec{v_\mathcal{A}}~|~\lambda(\vec{p_\mathcal{A}}, \vec{v_\mathcal{A}} - \vec{v_\mathcal{B}}) \cap (\mathcal{B} \oplus \mathcal{A}) \neq \varnothing\}
+        A partir da posição \pos e da velocidade \vel das embarcações é possível obter o \tcpa através da equação~\eqref{eq:tcpa}, e o \dcpa através da equação~\eqref{eq:dcpa}. Utilizaremos os indicadores \tcpa e \dcpa para identificar encontros em que a COLREGS deve ser aplicada. Se os valores obtidos satisfazerem a condição descrita em~\eqref{eq:cpaThreshold}, é preciso evadir da colisão de acordo com a COLREGS aplicável ao encontro~\cite{KUWATA2014110}. Para este trabalho consideraremos $t_{max} = 20s$ e $d_{min} = 2m$.
+        
+        \begin{equation}\label{eq:cpaThreshold}
+            0\leq t_{\rm CPA}\leq t_{\max}\quad{\hbox {and}}\quad d_{\rm CPA}\leq d_{\min}
         \end{equation}
-        
-        

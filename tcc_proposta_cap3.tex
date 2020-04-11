@@ -1,0 +1,38 @@
+\chapter{Trabalho Proposto}
+
+    Neste capítulo será abordado a metodologia utilizada neste trabalho, bem como os objetivos e o cronograma.
+
+    \section{Metodologia}
+        Motivado pelo propósito de experienciar o processo científico, este trabalho seguiu a seguinte metodologia: 
+        
+        \begin{enumerate}[label=\alph*)]
+            \item Identificação do Problema: a partir da análise do trabalho de Jurak~\cite{JURAK2020} foi possível observar que evasão de colisão aplicado a USV é uma demanda atual, e que a identificação de situações de colisão é uma necessidade em tais sistemas. Com isso, originou-se a pergunta de pesquisa que guiará este trabalho:
+            
+            \vspace{3mm}
+            
+            \centerline{\textit{"Como identificar situações de colisões no âmbito de USVs?"}}
+            
+            \item Definição da Sentença de Busca: a partir da pergunta formulada na etapa anterior, obteve-se o entendimento de quais áreas seriam permeadas para responde-la. Com esse entendimento, extraiu-se as palavras chaves formulando a seguinte sentença de busca:
+            
+            \vspace{3mm}
+            
+            \centerline{\textit{"USV" AND "COLREGS" AND "collision avoidance"}}
+            
+            \item Seleção de Trabalhos Relacionados: aplicando a sentença de busca definida em bases de busca como IEEE Explorer, Scopus e Science Direct, foi realizada a pré-seleção de trabalhos que poderiam embasar o trabalho proposto. A pré-seleção foi feita com base na leitura do \textit{"abstract"} do trabalho e da dissertação acerca de evasão de colisão e CPA, resultando em 28 trabalhos pré-selecionados. Posteriormente, através de uma análise mais detalhada dos trabalhos, para identificar as técnicas utilizadas, e de seus respectivos Índice H, foram selecionados os 5 trabalhos mais relevantes para serem utilizados como referência neste trabalho.
+            
+            \item Leitura dos Trabalhos Selecionados: para obter um conhecimento mais aprofundado a respeito da área, do problema e das técnicas utilizadas pelos autores atualmente, foi realizada uma primeira leitura dos trabalhos atentando para a fundamentação teórica e analisando brevemente seus resultados. Com isso foi possível entender como adaptar as metodologias utilizadas pelos autores à realidade deste trabalho.
+            
+            \item Estruturar a Proposta de Trabalho: com o conhecimento obtido da etapa anterior foi possível estruturar a presente proposta de trabalho contendo uma contextualização, embasamento teórico, objetivos e os meios que serão utilizados para atingi-los.
+            
+            \item Implementação da Proposta Aceita: com a proposta analisada e aprovada pelos avaliadores, será realizada a implementação do CPA e a integração com o sistema desenvolvido por Jurak~\cite{JURAK2020}.
+            
+            \item Executar Casos de Testes: validar a implementação realizada a partir de casos específicos de testes, a fim de estressar a implementação e obter possíveis comportamentos não previstos durante a implementação do sistema.
+            
+            \item Analise dos Resultados: analisar o comportamento obtido na fase de testes e compará-lo com o comportamento anterior à implementação deste trabalho. Também será realizada uma comparação com os resultados obtidos pelos demais autores da área. 
+        \end{enumerate}
+        
+        
+    \section{Objetivos}
+        O principal objetivo deste trabalho é desenvolver um componente de software capaz de identificar situações de colisão entre embarcações, dado a posição e a velocidade das embarcações envolvidas. Essa aplicação será então integrada ao sistema desenvolvido por Jurak~\cite{JURAK2020} a fim de aprimorá-lo, bem como testar a implementação realizada neste trabalho. Com isso, será possível que um encontro com uma configuração (posições) prevista pela COLREGS não tenha a regra aplicada devido à velocidade das embarcações. Entretanto, não é desejável que o sistema omita a aplicação de uma COLREGS em uma situação de colisão. 
+        
+        Como objetivo secundário, para evitar a omissão da aplicação de uma COLREGS em uma situação de risco, serão realizados testes unitários para validar que o comportamento obtido está de acordo com o esperado. Também serão realizadas análises com o objetivo de verificar o impacto ocasionado pela implementação deste trabalho no esforço computacional requerido pelo sistema. Como objetivo final, realizar-se-a um comparativo entre os resultados obtidos com o novo comportamento do sistema e os resultados anteriores à implementação deste trabalho. Além disso, comparações com resultados obtidos pelos autores da literatura de referência também serão realizadas.
