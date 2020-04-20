@@ -64,6 +64,8 @@
 % Um float do tipo algoritmo. No momento
 % este pacote é incompatível com a classe.
 %\usepackage{algorithm}
+% acronyms
+\usepackage{acronym}
 
 \usepackage[inline]{enumitem}
 
@@ -82,8 +84,13 @@
 \newcommand{\tcpa}{$t_{CPA}$~}
 \newcommand{\dcpa}{$d_{CPA}$~}
 
+\usepackage[normalem]{ulem}
 \usepackage{todonotes}
 \newcommand\frm[2][noinline]{\todo[author=FRM,color=red!75,size=tiny,#1]{{#2}}}
+\newcommand{\correct}[3]{\sout{#1}{\color{red}#2}\frm{#3}}
+
+\newcommand\fsa[2][noinline]{\todo[author=FSA,color=blue!40,size=tiny,#1]{{#2}}}
+\newcommand{\comment}[3]{\sout{#1}{\color{blue}#2}\fsa{#3}}
 
 %----------------------------------------------------------------
 % Parâmetros customizados sob demanda
@@ -170,30 +177,18 @@
 % Resumo, com as palavras-chave passadas por parâmetro
 % (OBRIGATÓRIO, ao menos para teses e dissertações)
 %----------------------------------------------------------------
-\begin{resumo}{lorem, ipsum, dolor, sit, amet}
-Seu resumo em português aqui. lorem ipsum dolor sit amet
-consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt
-ut labore et dolore magna aliquyam erat sed diam voluptua at vero
-eos et accusam et justo duo dolores et ea rebum stet clita.  kasd
-gubergren no sea takimata sanctus est lorem ipsum dolor sit amet
-lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat sed diam voluptua at.
+\begin{resumo}{COLREGS, veículo de superfície não tripulado, evasão de colisão}
+	\frm[inline]{Resumo e abstract!}
+Uma embarcação que se move de forma autônoma é denominado veículo de superfície não tripulado (do inglês \textit{"Unmanned Surface Vehicle"} - USV). As regras para que embarcações em situações de colisão evitem o acidente é definido pela regulamentações de prevenção de colisões no mar (do inglês \textit{"COLlision REGulations at Sea"} - COLREGS). Posto isso, o principal objetivo desse trabalho é tornar um sistema para USV, compatível com COLREGS, já existente capaz de identificar se um encontro com outra embarcação resultará em uma colisão. Essa detecção será realizada através da técnica do ponto de maior proximidade (do inglês \textit{"Closest Point of Approach"} - CPA). Além disso, o algoritmo de obstáculo de velocidades (do inglês \textit{"Velocity Obstacles"} - VO) será adaptado e integrado parcialmente ao sistema utilizado neste trabalho sob a hipótese de aumentar a segurança do sistema.
 \end{resumo}
 
 %----------------------------------------------------------------
 % Abstract, com as palavras-chave passadas por parâmetro
 % (OBRIGATÓRIO, ao menos para teses e dissertações)
 %----------------------------------------------------------------
-\begin{abstract}{lorem, ipsum, dolor, sit, amet}
-Your abstract in English here. lorem ipsum dolor sit amet
-consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt
-ut labore et dolore magna aliquyam erat sed diam voluptua at vero
-eos et accusam et justo duo dolores et ea rebum stet clita kasd
-gubergren no sea takimata sanctus est lorem ipsum dolor sit amet
-lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat sed diam voluptua at
+\begin{abstract}{COLREGS, unmanned surface vehicle, closest point of approach}
+	\frm[inline]{Resumo e abstract!}
+A vessel that moves autonomously is denominated Unmanned Surface Vehicle (USV). The rules for vessels in colision situations to avoid accident is defined by the COLlision REGulations at Sea (COLREGS). Then, the main goal of this work is to make an existent COLREGS compliant USV system able to identify if an encounter with another vessel will result in collision. The detection will be made through the Closest Point of Approach (CPA) technique. Set that, the Velocity Obstacle (VO) algorithm will be adapted to the system used in this work under the hypothesis of increases the system's security.
 \end{abstract}
 
 %----------------------------------------------------------------
@@ -204,7 +199,7 @@ erat sed diam voluptua at
 
 %\listoftables        % Lista de tabelas      (OPCIONAL)
 %\listofalgorithms    % Lista de algoritmos   (OPCIONAL)
-\listofacronyms      % Lista de siglas       (OPCIONAL)
+%\listofacronyms \frm{Está incompleta, tu usa muito mais siglas}      % Lista de siglas       (OPCIONAL)
 %\listofabbreviations % Lista de abreviaturas (OPCIONAL)
 %\listofsymbols       % Lista de símbolos     (OPCIONAL)
 \tableofcontents     % Sumário               (OBRIGATÓRIO)
@@ -215,6 +210,7 @@ erat sed diam voluptua at
 % um para cada capítulo. Para isso, utilize o comando \include,
 % como mostrado abaixo.
 %----------------------------------------------------------------
+\include{acronimos}
 \include{tcc_proposta_cap1}
 \include{tcc_proposta_cap2}
 \include{tcc_proposta_cap3}
