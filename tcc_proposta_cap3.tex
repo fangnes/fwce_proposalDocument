@@ -34,22 +34,32 @@
         
     \section{Objetivos}
     
-        O principal objetivo deste trabalho é implementar uma aplicação capaz de calcular o CPA de um encontro entre embarcações e, quando em situação de colisão, gerar o VO do encontro. Devido ao curto tempo de implementação, o algoritmo VO não será utilizado para resolver uma situação de colisão (como apresentado por Kuwata~\etal~\cite{KUWATA2014110}, Huang~\etal~\cite{HUANG2019142} e Song~\etal~\cite{SONG2018351}), mas adaptaremos a solução para, quando em situação de colisão, gerar obstáculos virtuais adicionais no sistema de Jurak~\cite{JURAK2020}. Estes obstáculos serão gerados utilizando o mesmo padrão apresentado por Jurak~\cite{JURAK2020} em seu trabalho e ocuparão a área resultante do algoritmo VO. Como resultado, após integração da aplicação desenvolvida neste trabalho no sistema de Jurak~\cite{JURAK2020}, é esperado que o sistema identifique encontros em que ocorrerá colisão e, principalmente, encontros que não ocorrerá colisão. Quando em situação de colisão, é esperado que o algoritmo VO seja acionado e os obstáculos virtuais adicionais acreça segurança ao sistema.
+        O principal objetivo deste trabalho é implementar uma aplicação capaz de calcular o CPA de um encontro entre embarcações e, quando em situação de colisão, gerar o VO do encontro. Devido ao curto tempo de implementação, o algoritmo VO não será utilizado para resolver uma situação de colisão (como apresentado por Kuwata~\etal~\cite{KUWATA2014110}, Huang~\etal~\cite{HUANG2019142} e Song~\etal~\cite{SONG2018351}), mas adaptaremos a solução para, quando em situação de colisão, gerar obstáculos virtuais adicionais no sistema de Jurak~\cite{JURAK2020}. Estes obstáculos serão gerados utilizando o mesmo padrão apresentado por Jurak~\cite{JURAK2020} em seu trabalho e ocuparão a área resultante do algoritmo VO. Como resultado, após integração da aplicação desenvolvida neste trabalho no sistema de Jurak~\cite{JURAK2020}, é esperado que o sistema identifique encontros em que ocorrerá colisão e, principalmente, encontros que não ocorrerá colisão. Quando em situação de colisão, é esperado que o algoritmo VO seja acionado e os obstáculos virtuais adicionais acresça segurança ao sistema.
         
         Como objetivo secundário, realizaremos a integração completa da aplicação desenvolvida neste trabalho no sistema de Jurak~\cite{JURAK2020}. Serão simulados testes em diferentes encontros através do simulador USV\_sim\footnote{\url{https://github.com/disaster-robotics-proalertas/usv\_sim\_lsa}}~\cite{Paravisi2018Toward} com a finalidade de estressar a solução e garantir que o objetivo principal foi atingido. Por fim, realizar-se-a um comparativo entre os resultados obtidos com o novo comportamento do sistema e os resultados anteriores à implementação deste trabalho, além de comparações com resultados obtidos pelos autores da literatura de referência.
         
     \section{Cronograma}
-        A Figura~\ref{fig:chap3_schedule} apresenta detalhadamente o cronograma de atividades, previstas e já realizadas, para atingir os objetivos expostos nesse documento. O planejamento foi realizado considerando atividades por semana e prevê, de forma geral, as seguintes atividades:\frm{Muito genérico. Tua tabela abaixo está melhor detalhada, use ela como base.}
+        A Figura~\ref{fig:chap3_schedule} apresenta detalhadamente o cronograma de atividades, previstas e já realizadas, para atingir os objetivos expostos nesse documento. O planejamento foi realizado considerando atividades por semana e prevê as seguintes atividades:
         \begin{enumerate}
             \item \textbf{Escrita}: elaboração dos arquivos contendo a informações necessárias para a documentação do processo de desenvolvimento do trabalho. Nessa atividade serão gerados dois documentos: a proposta de trabalho e o volume final.
             
-            \item \textbf{Estudo da Literatura}: pesquisa realizada para adquirir conhecimento básico a respeito do tema, como a respeito de USV e COLREGS, além de realizar um estudo aprofundado das técnicas utilizadas hoje em dia para detectar CPA e gerar um VO.
+            \item \textbf{Estudo da Literatura}: pesquisa realizada para adquirir conhecimento básico a respeito do tema, como a respeito de USV e COLREGS (atividades 2.1 e 2.2 da Figura~\ref{fig:chap3_schedule}, respectivamente).
             
-            \item \textbf{Estudo do Framework de Desenvolvimento}: prática a ser realizada com as ferramentas necessárias para o desenvolvimento do trabalho proposto.
+            \item \textbf{Busca por Trabalhos Relacionados}: pré-seleção e seleção de trabalhos que apresentam soluções para o problema de evasão de colisão aplicados a USV. Os trabalhos selecionados serão utilizados como referência por este trabalho.
             
-            \item \textbf{Implementação}: tempo previsto para a codificação do CPA e do VO.
+            \item \textbf{Leitura de Trabalhos Relacionados}: leitura completa dos trabalhos relacionados para aquisição do conhecimento necessário a respeito de CPA e VO para o desenvolvimento deste trabalho.
             
-            \item \textbf{Coleta e Análise dos Resultados}: realização de testes com a finalidade de validar e avaliar o resultado final. Esses resultados serão comparados com os obtidos por Jurak~\cite{JURAK2020}, em seu trabalho original, bem como com os resultados de outros autores que também utilizaram da mesma técnica.
+            \item \textbf{Estudo do ROS}: instalação, configuração e estudo a respeito do ROS~\cite{Quigley2009ROS}, sendo este um meta sistema operacional\footnote{Meta sistema operacional possui esse nome pois fornece funcionalidades de um sistema operacional (\ie abstração de \textit{"hardware"} controle de dispositivos), porém é executado através de outro sistema operacional (\ie Linux ou Windows)} destinado ao desenvolvimento de robôs. O estudo da ferramenta consiste em realizar tutoriais disponibilizados na \textit{"wiki"}\footnote{\textit{"Website" onde usuários modificam colaborativamente seu conteúdo.}}~\footnote{http://wiki.ros.org/ROS/Tutorials} do ROS.
+            
+            \item \textbf{Uso e Estudo da Plataforma Base}: primeiro contato realizado com o sistema desenvolvido por Jurak~\cite{JURAK2020}. Essa atividade consiste em instalar o USV\_sim~\cite{Paravisi2018Toward} e realizar simulações pré-definidas no \textit{"GitHub"}\footnote{Repositório online para versionamento de projetos}~\footnote{https://github.com/disaster-robotics-proalertas/usv\_sim\_lsa} do projeto.
+            
+            \item \textbf{Implementação}: período destinado a implementação do CPA e do VO.
+            
+            \item \textbf{Extração dos Resultados}: realização de testes com a finalidade de validar o desenvolvimento do CPA, verificando se o sistema é capaz de identificar encontros que resultarão em colisão e encontros que não resultarão em colisão.
+            
+            \item \textbf{Avaliação dos Resultados}: os resultados obtidos no item anterior serão avaliados contra os resultados obtidos por Jurak~\cite{JURAK2020} em seu trabalho original, com a finalidade de validar a hipótese de ganho de segurança com os obstáculos virtuais gerados a partir do VO.
+            
+            \item \textbf{Comparação dos Resultados}: nossa solução será comparada também com os resultados obtidos pelos autores da literatura que fundamentam este trabalho.
         \end{enumerate}
         
         \begin{figure}[htb]
